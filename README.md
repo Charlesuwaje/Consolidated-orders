@@ -67,7 +67,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 
 
-
+<!-- 
 ## Consolidated Orders Import & Refresh Command
 
 Overview
@@ -154,5 +154,87 @@ Implement queue-based processing for large data imports.
 Enhance logging and monitoring for import failures.
 
 Improve data normalization for better analytics performance.🚀
+
+ -->
+
+
+
+
+ # Consolidated Orders Module
+
+## Overview
+The **Consolidated Orders Module** enables efficient order management, importation, and analytics. This module supports **bulk data import via Excel**, **data validation**, and an **automated order refresh process** using an Artisan command. It ensures accurate and up-to-date order information for analytics and reporting.
+
+## Features
+- **Excel Order Import**: Allows bulk import of orders using an Excel file.
+- **Data Validation**: Ensures required fields are formatted correctly and not missing.
+- **Error Handling**: Prevents database inconsistencies and missing data issues.
+- **Performance Optimization**: Enhances analytics reporting for large datasets.
+- **Order Refresh Command**: Updates consolidated order records to maintain accurate reports.
+- **API Support**: Endpoints available for fetching consolidated orders.
+- **Automated Weekly Refresh**: The consolidated order data is refreshed every Sunday at midnight.
+
+## Installation & Setup
+### **Prerequisites**
+Ensure your environment has the following installed:
+- PHP 8.x
+- Composer
+- Laravel 10.x
+- MySQL or PostgreSQL Database
+- [Laravel Excel](https://laravel-excel.com/) package for Excel imports
+
+### **Setup Instructions**
+
+1. Install dependencies:
+   ```sh
+   composer install
+   ```
+2. Configure environment variables:
+   ```sh
+   cp .env.example .env
+   ```
+3. Set up the database:
+   ```sh
+   php artisan migrate --seed
+   ```
+4. Start the application:
+   ```sh
+   php artisan serve
+   ```
+
+   5. Refresh application DB:
+   ```sh
+  php artisan orders:refresh
+   ```
+
+## Running the Orders Refresh Command
+To refresh consolidated orders manually, run:
+```sh
+php artisan orders:refresh
+```
+This command:
+- Updates existing order records.
+- Fixes any data inconsistencies.
+- Ensures analytics reports remain accurate.
+
+The refresh command also runs **automatically every Sunday at midnight** via the Laravel Scheduler:
+```php
+$schedule->command('orders:refresh')->weeklyOn(0, '00:00');
+```
+
+## API Endpoints & Postman Documentation
+### **Base URL:**
+```
+http://127.0.0.1:8000/api
+```
+
+### **Postman Documentation**
+For detailed API testing and documentation, import the following Postman collection:
+[Postman Collection Link](https://www.postman.com/your-collection-url)
+
+## Future Improvements
+- Implement **queue-based** processing for large data imports.
+- Enhance **logging and monitoring** for import failures.
+- Improve **data normalization** for better analytics performance.
 
 

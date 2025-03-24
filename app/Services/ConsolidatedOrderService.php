@@ -1,10 +1,12 @@
-<?php 
+<?php
 
 namespace App\Services;
 
-use App\Models\ConsolidatedOrder;
 use App\Models\OrderItem;
+use App\Models\ConsolidatedOrder;
 use Illuminate\Support\Facades\DB;
+use App\Http\Resources\ConsolidatedOrderResource;
+use Illuminate\Http\Request;
 
 class ConsolidatedOrderService
 {
@@ -47,4 +49,10 @@ class ConsolidatedOrderService
     {
         return ConsolidatedOrder::paginate($perPage);
     }
+
+    // public function getConsolidatedOrders($perPage = 20)
+    // {
+    //     $orders = ConsolidatedOrder::paginate($perPage);
+    //     return ConsolidatedOrderResource::collection($orders);
+    // }
 }
