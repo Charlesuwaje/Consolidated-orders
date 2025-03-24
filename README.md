@@ -11,13 +11,13 @@
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+-   [Simple, fast routing engine](https://laravel.com/docs/routing).
+-   [Powerful dependency injection container](https://laravel.com/docs/container).
+-   Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+-   Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+-   Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+-   [Robust background job processing](https://laravel.com/docs/queues).
+-   [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
@@ -35,19 +35,19 @@ We would like to extend our thanks to the following sponsors for funding Laravel
 
 ### Premium Partners
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+-   **[Vehikl](https://vehikl.com/)**
+-   **[Tighten Co.](https://tighten.co)**
+-   **[WebReinvent](https://webreinvent.com/)**
+-   **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+-   **[64 Robots](https://64robots.com)**
+-   **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
+-   **[Cyber-Duck](https://cyber-duck.co.uk)**
+-   **[DevSquad](https://devsquad.com/hire-laravel-developers)**
+-   **[Jump24](https://jump24.co.uk)**
+-   **[Redberry](https://redberry.international/laravel/)**
+-   **[Active Logic](https://activelogic.com)**
+-   **[byte5](https://byte5.de)**
+-   **[OP.GG](https://op.gg)**
 
 ## Contributing
 
@@ -65,9 +65,7 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
-
-
-<!-- 
+<!--
 ## Consolidated Orders Import & Refresh Command
 
 Overview
@@ -157,84 +155,95 @@ Improve data normalization for better analytics performance.🚀
 
  -->
 
-
-
-
- # Consolidated Orders Module
+# Consolidated Orders Module
 
 ## Overview
+
 The **Consolidated Orders Module** enables efficient order management, importation, and analytics. This module supports **bulk data import via Excel**, **data validation**, and an **automated order refresh process** using an Artisan command. It ensures accurate and up-to-date order information for analytics and reporting.
 
 ## Features
-- **Excel Order Import**: Allows bulk import of orders using an Excel file.
-- **Data Validation**: Ensures required fields are formatted correctly and not missing.
-- **Error Handling**: Prevents database inconsistencies and missing data issues.
-- **Performance Optimization**: Enhances analytics reporting for large datasets.
-- **Order Refresh Command**: Updates consolidated order records to maintain accurate reports.
-- **API Support**: Endpoints available for fetching consolidated orders.
-- **Automated Weekly Refresh**: The consolidated order data is refreshed every Sunday at midnight.
+
+-   **Excel Order Import**: Allows bulk import of orders using an Excel file.
+-   **Data Validation**: Ensures required fields are formatted correctly and not missing.
+-   **Error Handling**: Prevents database inconsistencies and missing data issues.
+-   **Performance Optimization**: Enhances analytics reporting for large datasets.
+-   **Order Refresh Command**: Updates consolidated order records to maintain accurate reports.
+-   **API Support**: Endpoints available for fetching consolidated orders.
+-   **Automated Weekly Refresh**: The consolidated order data is refreshed every Sunday at midnight.
 
 ## Installation & Setup
+
 ### **Prerequisites**
+
 Ensure your environment has the following installed:
-- PHP 8.x
-- Composer
-- Laravel 10.x
-- MySQL or PostgreSQL Database
-- [Laravel Excel](https://laravel-excel.com/) package for Excel imports
+
+-   PHP 8.x
+-   Composer
+-   Laravel 10.x
+-   MySQL or PostgreSQL Database
+-   [Laravel Excel](https://laravel-excel.com/) package for Excel imports
 
 ### **Setup Instructions**
 
 1. Install dependencies:
-   ```sh
-   composer install
-   ```
+    ```sh
+    composer install
+    ```
 2. Configure environment variables:
-   ```sh
-   cp .env.example .env
-   ```
+    ```sh
+    cp .env.example .env
+    ```
 3. Set up the database:
-   ```sh
-   php artisan migrate --seed
-   ```
+    ```sh
+    php artisan migrate --seed
+    ```
 4. Start the application:
-   ```sh
-   php artisan serve
-   ```
 
-   5. Refresh application DB:
-   ```sh
-  php artisan orders:refresh
-   ```
+    ```sh
+    php artisan serve
+    ```
+
+    5. Refresh application DB:
+
+    ```sh
+    php artisan orders:refresh
+    ```
 
 ## Running the Orders Refresh Command
+
 To refresh consolidated orders manually, run:
+
 ```sh
 php artisan orders:refresh
 ```
+
 This command:
-- Updates existing order records.
-- Fixes any data inconsistencies.
-- Ensures analytics reports remain accurate.
+
+-   Updates existing order records.
+-   Fixes any data inconsistencies.
+-   Ensures analytics reports remain accurate.
 
 The refresh command also runs **automatically every Sunday at midnight** via the Laravel Scheduler:
+
 ```php
 $schedule->command('orders:refresh')->weeklyOn(0, '00:00');
 ```
 
 ## API Endpoints & Postman Documentation
+
 ### **Base URL:**
+
 ```
 http://127.0.0.1:8000/api
 ```
 
 ### **Postman Documentation**
+
 For detailed API testing and documentation, import the following Postman collection:
 [Postman Collection Link](https://www.postman.com/your-collection-url)
 
 ## Future Improvements
-- Implement **queue-based** processing for large data imports.
-- Enhance **logging and monitoring** for import failures.
-- Improve **data normalization** for better analytics performance.
 
-
+-   Implement **queue-based** processing for large data imports.
+-   Enhance **logging and monitoring** for import failures.
+-   Improve **data normalization** for better analytics performance.
