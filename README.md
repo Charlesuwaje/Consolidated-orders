@@ -164,11 +164,9 @@ The **Consolidated Orders Module** enables efficient order management, importati
 ## Features
 
 -   **Excel Order Import**: Allows bulk import of orders using an Excel file.
--   **Data Validation**: Ensures required fields are formatted correctly and not missing.
--   **Error Handling**: Prevents database inconsistencies and missing data issues.
 -   **Performance Optimization**: Enhances analytics reporting for large datasets.
 -   **Order Refresh Command**: Updates consolidated order records to maintain accurate reports.
--   **API Support**: Endpoints available for fetching consolidated orders.
+-   **Dummy Data**: Random datas using seed and factories.
 -   **Automated Weekly Refresh**: The consolidated order data is refreshed every Sunday at midnight.
 
 ## Installation & Setup
@@ -177,9 +175,7 @@ The **Consolidated Orders Module** enables efficient order management, importati
 
 Ensure your environment has the following installed:
 
--   PHP 8.x
 -   Composer
--   Laravel 10.x
 -   MySQL or PostgreSQL Database
 -   [Laravel Excel](https://laravel-excel.com/) package for Excel imports
 
@@ -201,12 +197,6 @@ Ensure your environment has the following installed:
 
     ```sh
     php artisan serve
-    ```
-
-    5. Refresh application DB:
-
-    ```sh
-    php artisan orders:refresh
     ```
 
 ## Running the Orders Refresh Command
@@ -241,9 +231,3 @@ http://127.0.0.1:8000/api
 
 For detailed API testing and documentation, import the following Postman collection:
 [Postman Collection Link](https://www.postman.com/your-collection-url)
-
-## Future Improvements
-
--   Implement **queue-based** processing for large data imports.
--   Enhance **logging and monitoring** for import failures.
--   Improve **data normalization** for better analytics performance.
