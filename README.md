@@ -230,4 +230,11 @@ http://127.0.0.1:8000/api
 ### **Postman Documentation**
 
 For detailed API testing and documentation, import the following Postman collection:
-[Postman Collection Link](https://www.postman.com/your-collection-url)
+[Postman Collection Link](https://documenter.getpostman.com/view/23719289/2sAYkKHHrS)
+
+### **Postman Documentation**
+
+GitHub repo link Url 
+```
+https://github.com/Charlesuwaje/Consolidated-orders.git
+```
